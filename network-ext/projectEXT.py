@@ -14,7 +14,7 @@ class Project:
 		self.myOp 		= myOp
 
 		init_msg 		= "Project init from {}".format(myOp)
-		print(init_msg)
+		print(init_msg, "right here -? did we get it yet?")
 
 		return
 
