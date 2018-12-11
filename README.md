@@ -32,13 +32,22 @@ In this example project we'll focus on how our essential project components can 
 Okay - but it's a lot of work to save `TOX` files and keep that all organized! And you're right for thinking that. Lucky for us you can use a little TOX module to help with this process that's already set up to streamline this process. You can find it here - [TouchDesigner-Save-External](https://github.com/raganmd/touchdesigner-save-external)
 
 ## Standard Reusable Pieces
-What are my standard reusable pieces?! That's a hard question, and the structure I'd offer as a starting point falls into four primary blocks. Each of these will likely have additional blocks as well, but these form our top level structures. 
+What are my standard reusable pieces?!  
+That's a hard question, and the structure I'd offer as a starting point falls into four primary blocks. Each of these will likely have additional blocks as well, but these form our top level structures. It's important to remember that these top level structures can/should/will be made up of other structures. I would also encourage you to remember that you won't get this right the first time, or the second, or the third. I'd encourage you to embrace the iterative nature of this process and acknowledge that a part of what you're likely chasing here is finding the right set of high level structures that's configurable to meet your specific needs. So where do you get started then? What are these mysterious puzzle pieces and what's a starting way to think about the role they fill? For starters let's organize our re-usable framework into the following:
+* Communication
+* Output
+* Tools
+* Data
+
+You'll find that in the network I adhere to the practice of leaving the operator name as a prefix to my unique name, e.g. `base_someOtherNameHere`. This convention grew out of a long conversation with fellow developers at Obscura digital and seeks make the operator type as transparent as possible. When you're reading another developers Touch network it can often be difficult to quickly diagnose or determine what they're doing. Leaving operator names intact as a prefix can help ameliorate this gripe - you are in no way expected to do the same, but you should notice that it is a consistent property of the network example.
 
 ### Communication
 *base_com*
+Once you're working with multiple machines, multiple instances of TouchDesigner, or multiple interconnected applications you'll quickly find that you need to exchange messages. `base_com` is the epicenter of that function. The idea is to centralize the communication elements into this base, so rather than having OSC or TouchIn/Out ops spread hither and thither, they instead live in this component. There are some additional elements that have to go into play to control how you think about building in here, but the essential idea is that this houses any operators that do inter-application communication. That's hard to get used to, but makes sure that you always know where to look for messages coming in, or where to target for messages going out. In practice you'll also likely have several sub-components to handle talking with OSC, other touch projects, MIDI, and the like.
 
 ### Output
 *container_output*
+Output is just that - what the application is going to display. On the controller this is likely a UI, while on display nodes this is going to be some kind of screen or projector output. 
 
 ### Tools
 *base_tools*
@@ -47,6 +56,7 @@ What are my standard reusable pieces?! That's a hard question, and the structure
 *base_data*
 
 
+## Extensions
 
 
 ## Configuration
