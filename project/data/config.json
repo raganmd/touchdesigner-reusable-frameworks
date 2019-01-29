@@ -1,0 +1,145 @@
+{
+	"project" : {
+	    "project_name"			: "reusable-frameworks", 
+	    "touch_version" 		: "099", 
+	    "touch_build"			: null,
+		"heartbeats"			: false
+	},
+
+	"nodes" : {
+	    "render001":{
+	        "render-groups": {
+	            "face01": {
+					"channels": [	"chan-01",
+									"chan-02",
+									"chan-03"
+								], 
+	                "display_index": 0
+				}
+	        }, 
+	        "media_path": "D:\\",
+	        "role": "img-synth",
+	        "tox": ""
+	    },
+	    "controller001":{
+	        "render-groups": {
+	            "ui": {
+	                "channels": [ "controller" ], 
+	                "display_index": 0
+	            }
+	        }, 
+	        "media_path": "D:\\", 
+	        "role": "controller",
+	        "tox": ""
+	    },  
+		"standby":{
+	        "config_id"     : null,
+	        "render-groups" : null, 
+	        "media_path"    : null, 
+	        "notes"         : null,  
+	        "role"          : "standby",
+	        "tox"           : null
+		},
+	    "guest":{
+	        "config_id"     : null,
+	        "render-groups" : null, 
+	        "media_path"    : null, 
+	        "notes"         : null,  
+	        "role"          : "standby",
+	        "tox"           : null
+	    }
+	},
+
+	"channels" : {
+		"chan-001":{		
+			"width"         : 4096,
+			"height"        : 2160,
+			"type"          : "projector",
+			"orientation"   : 0 
+		},
+		"chan-002":{		
+			"width"         : 4096,
+			"height"        : 2160, 
+			"type"          : "projector",  
+			"orientation"   : 0 
+		},
+		"controller":{		
+			"width"         : 1920,
+			"height"        : 1080,
+			"type"          : "lcd", 
+			"orientation"   : 0
+		},
+		"render":{		
+			"width"         : 1920,
+			"height"        : 1080,
+			"type"          : "lcd", 
+			"orientation"   : 0
+		},
+		"calibration":{		
+			"width"         : 1000,
+			"height"        : 300,
+			"type"          : "lcd", 
+			"orientation"   : 0
+		}		
+    },
+    
+    "channel_type" :{
+        "lcd"               : {
+            "tox"           : "/td-modules/channel_types/container_lcd.tox"
+        },
+        "led"               : {
+            "tox"           : "/td-modules/channel_types/container_led.tox"
+        },
+        "projector"         :  {
+            "tox"           : "/td-modules/channel_types/container_projector.tox"
+        }
+    },
+
+	"output_devices" : {
+	    "projector001" : {
+			"ip_address" 	: "192.100.100.1",
+			"channel"		: 1,
+			"manufacturer" 	: "christie",
+			"model" 		: null,
+			"api_version" 	: null, 
+			"notes" 		: null
+		}
+	},
+
+	"machines" : {
+		"job-primary01"	: {
+			"role"					: "render001",
+			"primary"				: true,
+			"sync-media"			: true,
+			"status-order"			: 3,
+			"expect-heart-beat"		: true
+		},
+		"job-backup01"	: {
+			"role"					: "render001",
+			"primary"				: false,
+			"sync-media"			: true,
+			"status-order"			: 4,
+			"expect-heart-beat"		: true
+		},		
+		"job-primary-controller" : {
+			"role"					: "controller001",
+			"primary"				: true,
+			"sync-media"			: true,
+			"status-order"			: 1,
+			"expect-heart-beat"		: true
+		},
+		"job-backup-controller"	: {
+			"role"					: "controller001",
+			"primary"				: false,
+			"sync-media"			: true,
+			"status-order"			: 2,
+			"expect-heart-beat"		: true
+		}
+	},
+	"network_settings" : { 
+		"udp-multicast-address"		: "239.255.20.126",
+		"upd-port"					: 7101,
+		"osc-address"				: "239.255.20.126",
+		"osc-port"					: 7102
+	}
+}
