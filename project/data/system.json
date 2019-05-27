@@ -1,0 +1,18 @@
+{
+    "Communication": {
+        "Syscontrolleraddress": "10.0.1.80",
+        "Udpmulticastaddress": "239.255.20.126",
+        "Syscontrollerport": 7575,
+        "Oscport": 7102,
+        "Udpport": 7101,
+        "Oscaddress": "239.255.20.126"
+    },
+    "Project": {
+        "Hardwaresync": false,
+        "Projectname": "example-project",
+        "Mediadirectory": "E:/media",
+        "Heartbeatinterval": 2,
+        "Heartbeats": false,
+        "Controllertimeout": 30
+    }
+}

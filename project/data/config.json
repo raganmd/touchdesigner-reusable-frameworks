@@ -1,11 +1,4 @@
 {
-	"project" : {
-	    "project_name"			: "reusable-frameworks", 
-	    "touch_version" 		: "099", 
-	    "touch_build"			: null,
-		"heartbeats"			: false
-	},
-
 	"nodes" : {
 	    "render001":{
 	        "render-groups": {
@@ -135,11 +128,5 @@
 			"status-order"			: 2,
 			"expect-heart-beat"		: true
 		}
-	},
-	"network_settings" : { 
-		"udp-multicast-address"		: "239.255.20.126",
-		"upd-port"					: 7101,
-		"osc-address"				: "239.255.20.126",
-		"osc-port"					: 7102
 	}
 }
