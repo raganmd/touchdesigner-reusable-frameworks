@@ -16,6 +16,7 @@ class Project:
 
 		self.myOp 			= myOp
 		self.System_json 	= 'data/system.json'
+		self.Config 		= 'data/config.json'
 
 		init_msg 		= "Project init from {}".format(myOp)
 		print(init_msg)
@@ -37,7 +38,11 @@ class Project:
 			---------
 			none		
 		'''
+		self.Load_store_json(self.Config, op.Project, 'nodes', 'nodes')
 
+		# start-up sequence for modules
+		op.Com.Touch_start()
+		op.Output.Touch_start()
 		return
 
 	def Save_system_json(self):

@@ -12,7 +12,7 @@
 	        }, 
 	        "media_path": "D:\\",
 	        "role": "img-synth",
-	        "tox": ""
+	        "tox": "td-modules\\container_draw\\container_draw.tox"
 	    },
 	    "controller001":{
 	        "render-groups": {
@@ -23,7 +23,7 @@
 	        }, 
 	        "media_path": "D:\\", 
 	        "role": "controller",
-	        "tox": ""
+	        "tox": "td-modules\\container_controller\\container_controller.tox"
 	    },  
 		"standby":{
 	        "config_id"     : null,
