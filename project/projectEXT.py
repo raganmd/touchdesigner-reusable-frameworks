@@ -38,6 +38,10 @@ class Project:
 			---------
 			none		
 		'''
+		# load system json on start
+		self.myOp.Load_system_json()
+
+		# load and store system config
 		self.Load_store_json(self.Config, op.Project, 'nodes', 'nodes')
 
 		# start-up sequence for modules
@@ -207,17 +211,15 @@ class Project:
 			None
 		'''
 
-		# open the json file
-		json_file 				= open(target_file, 'r')
+		# open the json file as json_file
+		with open(target_file) as json_file:
 
-		# create a dictionary out of our json file
-		json_dict               = json.load(json_file).get(target_key)
+			# create a dictionary out of our json file
+			json_dict               = json.load(json_file).get(target_key)
 
-		# store our dictionary in the target op
-		storage_op.store(storage_name, json_dict)
+			# store our dictionary in the target op
+			storage_op.store(storage_name, json_dict)
 
-		# close the file
-		json_file.close()
 
 	def Write_dict_to_json(self, target_file, dict_to_save):
 		''' 
@@ -238,13 +240,10 @@ class Project:
 		'''
 
 		# open the json file
-		json_file 				= open(target_file, 'w')
+		with open(target_file, 'w') as json_file:
 
-		# ensure the format for the json is human readable
-		pretty_json 			= json.dumps(dict_to_save, indent=4)
+			# ensure the format for the json is human readable
+			pretty_json 			= json.dumps(dict_to_save, indent=4)
 
-		# write the json to file
-		json_file.write(pretty_json)
-
-		# close the file
-		json_file.close()
+			# write the json to file
+			json_file.write(pretty_json)
